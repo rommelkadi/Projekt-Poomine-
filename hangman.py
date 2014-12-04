@@ -33,29 +33,29 @@ def kuva_uus_sõna():
     
     print(sõna)
     
-    return 
-    
-  
-    
-#teen nupule A funktsiooni
-def a_käsk():
+    return
+
+### Üritan teha ühe ainsa callbacki nuppude jaoks
+
+def callback(täht):
     try:
+    
         
-        if "a" in sõna:
+        if täht in sõna:
             sõne = list(sõna)
             indeksid = 0
             i = []
 
             for el in sõne:
                 indeksid +=1
-                if el == "a":
+                if el == täht:
                     i +=[indeksid-1]
                     
             nonoh = varjatud_sõna.get()
             nonoh = list(nonoh)
 
             for o in i:
-                nonoh[o*2] = "A"
+                nonoh[o*2] = täht.upper()
             nonoh = "".join(nonoh)
             varjatud_sõna.set(nonoh)
                     
@@ -63,133 +63,8 @@ def a_käsk():
     except:
         print("Böö, seda tähte polnud")
 
-def b_käsk():
-    try:
-        
-        if "b" in sõna:
-            sõne = list(sõna)
-            indeksid = 0
-            i = []
-
-            for el in sõne:
-                indeksid +=1
-                if el == "b":
-                    i +=[indeksid-1]
-                    
-            nonoh = varjatud_sõna.get()
-            nonoh = list(nonoh)
-
-            for o in i:
-                nonoh[o*2] = "B"
-            nonoh = "".join(nonoh)
-            varjatud_sõna.set(nonoh)
-    except:
-        print("Böö, seda tähte polnud")
 
 
-
-def e_käsk():
-    try:
-        if "e" in sõna:
-            sõne = list(sõna)
-            indeksid = 0
-            i = []
-
-            for el in sõne:
-                indeksid +=1
-                if el == "e":
-                    i += [indeksid-1]
-            nonoh = varjatud_sõna.get()
-            nonoh = list(nonoh)
-            for o in i:
-                nonoh[o*2] = "E"
-            nonoh = "".join(nonoh)
-            varjatud_sõna.set(nonoh)
-    except:
-        print("Böö, seda tähte polnud")
-
-def i_käsk():
-    try:
-        if "i" in sõna:
-            sõne = list(sõna)
-            indeksid = 0
-            i = []
-
-            for el in sõne:
-                indeksid +=1
-                if el == "i":
-                    i += [indeksid-1]
-            nonoh = varjatud_sõna.get()
-            nonoh = list(nonoh)
-            for o in i:
-                nonoh[o*2] = "I"
-            nonoh = "".join(nonoh)
-            varjatud_sõna.set(nonoh)
-    except:
-        print("Böö, seda tähte polnud")
-
-def k_käsk():
-    try:
-        if "k" in sõna:
-            sõne = list(sõna)
-            indeksid = 0
-            i = []
-
-            for el in sõne:
-                indeksid +=1
-                if el == "k":
-                    i += [indeksid-1]
-            nonoh = varjatud_sõna.get()
-            nonoh = list(nonoh)
-            for o in i:
-                nonoh[o*2] = "K"
-            nonoh = "".join(nonoh)
-            varjatud_sõna.set(nonoh)
-    except:
-        print("Böö, seda tähte polnud")
-
-
-def o_käsk():
-    try:
-        if "o" in sõna:
-            sõne = list(sõna)
-            indeksid = 0
-            i = []
-
-            for el in sõne:
-                indeksid +=1
-                if el == "o":
-                    i += [indeksid-1]
-            nonoh = varjatud_sõna.get()
-            nonoh = list(nonoh)
-            for o in i:
-                nonoh[o*2] = "O"
-            nonoh = "".join(nonoh)
-            varjatud_sõna.set(nonoh)
-    except:
-        print("Böö, seda tähte polnud")
-
-def s_käsk():
-    try:
-        if "s" in sõna:
-            sõne = list(sõna)
-            indeksid = 0
-            i = []
-
-            for el in sõne:
-                indeksid +=1
-                if el == "s":
-                    i += [indeksid-1]
-            nonoh = varjatud_sõna.get()
-            nonoh = list(nonoh)
-            for o in i:
-                nonoh[o*2] = "S"
-            nonoh = "".join(nonoh)
-            varjatud_sõna.set(nonoh)
-    except:
-        print("Böö, seda tähte polnud")
-        
-    
 
 
 
@@ -217,31 +92,31 @@ subMenu.add_separator()
 
 
 
-A_nupp = Button(bottomframe, text="A",command = a_käsk).pack(side=LEFT)
-B_nupp = Button(bottomframe, text="B",command = b_käsk).pack(side=LEFT)
-C_nupp = Button(bottomframe, text="C").pack(side=LEFT)
-D_nupp = Button(bottomframe, text="D").pack(side=LEFT)
-E_nupp = Button(bottomframe, text="E",command = e_käsk).pack(side=LEFT)
-F_nupp = Button(bottomframe, text="F").pack(side=LEFT)
-G_nupp = Button(bottomframe, text="G").pack(side=LEFT)
-H_nupp = Button(bottomframe, text="H").pack(side=LEFT)
-I_nupp = Button(bottomframe, text="I",command = i_käsk).pack(side=LEFT)
-J_nupp = Button(bottomframe, text="J").pack(side=LEFT)
-K_nupp = Button(bottomframe, text="K",command = k_käsk).pack(side=LEFT)
-L_nupp = Button(bottomframe, text="L").pack(side=LEFT)
-M_nupp = Button(bottomframe, text="M").pack(side=LEFT)
-N_nupp = Button(bottomframe, text="N").pack(side=LEFT)
-O_nupp = Button(bottomframe, text="O",command = o_käsk).pack(side=LEFT)
-P_nupp = Button(bottomframe, text="P").pack(side=LEFT)
-R_nupp = Button(bottomframe, text="R").pack(side=LEFT)
-S_nupp = Button(bottomframe, text="S",command = s_käsk).pack(side=LEFT)
-T_nupp = Button(bottomframe, text="T").pack(side=LEFT)
-U_nupp = Button(bottomframe, text="U").pack(side=LEFT)
-V_nupp = Button(bottomframe, text="V").pack(side=LEFT)
-Õ_nupp = Button(bottomframe, text="Õ").pack(side=LEFT)
-Ä_nupp = Button(bottomframe, text="Ä").pack(side=LEFT)
-Ö_nupp = Button(bottomframe, text="Ö").pack(side=LEFT)
-Ü_nupp = Button(bottomframe, text="Ü").pack(side=LEFT)
+A_nupp = Button(bottomframe, text="A",command = lambda täht="a": callback(täht)).pack(side=LEFT)
+B_nupp = Button(bottomframe, text="B",command = lambda täht="b": callback(täht)).pack(side=LEFT)
+C_nupp = Button(bottomframe, text="C",command = lambda täht="c": callback(täht)).pack(side=LEFT)
+D_nupp = Button(bottomframe, text="D",command = lambda täht="d": callback(täht)).pack(side=LEFT)
+E_nupp = Button(bottomframe, text="E",command = lambda täht="e": callback(täht)).pack(side=LEFT)
+F_nupp = Button(bottomframe, text="F",command = lambda täht="f": callback(täht)).pack(side=LEFT)
+G_nupp = Button(bottomframe, text="G",command = lambda täht="g": callback(täht)).pack(side=LEFT)
+H_nupp = Button(bottomframe, text="H",command = lambda täht="h": callback(täht)).pack(side=LEFT)
+I_nupp = Button(bottomframe, text="I",command = lambda täht="i": callback(täht)).pack(side=LEFT)
+J_nupp = Button(bottomframe, text="J",command = lambda täht="j": callback(täht)).pack(side=LEFT)
+K_nupp = Button(bottomframe, text="K",command = lambda täht="k": callback(täht)).pack(side=LEFT)
+L_nupp = Button(bottomframe, text="L",command = lambda täht="l": callback(täht)).pack(side=LEFT)
+M_nupp = Button(bottomframe, text="M",command = lambda täht="m": callback(täht)).pack(side=LEFT)
+N_nupp = Button(bottomframe, text="N",command = lambda täht="n": callback(täht)).pack(side=LEFT)
+O_nupp = Button(bottomframe, text="O",command = lambda täht="o": callback(täht)).pack(side=LEFT)
+P_nupp = Button(bottomframe, text="P",command = lambda täht="p": callback(täht)).pack(side=LEFT)
+R_nupp = Button(bottomframe, text="R",command = lambda täht="r": callback(täht)).pack(side=LEFT)
+S_nupp = Button(bottomframe, text="S",command = lambda täht="s": callback(täht)).pack(side=LEFT)
+T_nupp = Button(bottomframe, text="T",command = lambda täht="t": callback(täht)).pack(side=LEFT)
+U_nupp = Button(bottomframe, text="U",command = lambda täht="u": callback(täht)).pack(side=LEFT)
+V_nupp = Button(bottomframe, text="V",command = lambda täht="v": callback(täht)).pack(side=LEFT)
+Õ_nupp = Button(bottomframe, text="Õ",command = lambda täht="õ": callback(täht)).pack(side=LEFT)
+Ä_nupp = Button(bottomframe, text="Ä",command = lambda täht="ä": callback(täht)).pack(side=LEFT)
+Ö_nupp = Button(bottomframe, text="Ö",command = lambda täht="ö": callback(täht)).pack(side=LEFT)
+Ü_nupp = Button(bottomframe, text="Ü",command = lambda täht="ü": callback(täht)).pack(side=LEFT)
 
 
 root.mainloop()
