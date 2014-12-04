@@ -35,10 +35,13 @@ def kuva_uus_sõna():
     return
 
 ### Üritan teha ühe ainsa callbacki nuppude jaoks
+
+counter = 0
+
 def callback(täht):
-    try:
-    
-        
+    global counter
+    if counter < 7:
+              
         if täht in sõna:
             sõne = list(sõna)
             indeksid = 0
@@ -56,10 +59,15 @@ def callback(täht):
                 nonoh[o*2] = täht.upper()
             nonoh = "".join(nonoh)
             varjatud_sõna.set(nonoh)
+        if täht not in sõna:
+            print("Böö, seda tähte polnud")
+            counter +=1
+    else:
+        print("MÄNGLÄBI")
                     
+        
 
-    except:
-        print("Böö, seda tähte polnud")
+    
 
 
 
