@@ -6,6 +6,7 @@ from random import *
 def destroy():
     root.destroy()
 
+
 def kuva_uus_sõna():
     #kuva_aknas1 = False
 
@@ -35,6 +36,7 @@ def kuva_uus_sõna():
     return
 
 ### Üritan teha ühe ainsa callbacki nuppude jaoks
+
 def callback(täht):
     try:
     
