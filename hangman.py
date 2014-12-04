@@ -6,7 +6,6 @@ from random import *
 def destroy():
     root.destroy()
 
-
 def kuva_uus_sõna():
     #kuva_aknas1 = False
 
@@ -58,6 +57,8 @@ def a_käsk():
                 nonoh[o*2] = "A"
             nonoh = "".join(nonoh)
             varjatud_sõna.set(nonoh)
+            A_nupp.congif(state='disable', relief=SUNKEN)
+
                     
 
     except:
