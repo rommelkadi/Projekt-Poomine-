@@ -27,6 +27,7 @@ def kuva_uus_sõna():
     
     kuva_aknas = Label(topframe, textvariable = varjatud_sõna, font=("Helvetica", 20), width=15).grid(row=5, column=6)
 
+
     
     print(sõna)
     
@@ -79,6 +80,10 @@ def callback(täht):
     else:
         #print("MÄNGLÄBI")
         mang_labi = Label(topframe, text="Mäng Läbi!", font=("Helvetica", 20)).grid(row=9, column=6)
+        photo = PhotoImage(file="sticky_figure.png")
+        w = Label(topframe, image=photo)
+        w.photo = photo
+        w.grid(row=12, column=6)
                     
 
 
@@ -86,7 +91,7 @@ def callback(täht):
 
 
 root = Tk()
-root.geometry("500x250")
+root.geometry("500x400")
 
 topframe=Frame(root)
 topframe.pack()
