@@ -68,8 +68,8 @@ def callback(täht):
 
 #Kui sõna on õigesti vastatud kuvab ära arvasid! See replace värk on vajalik sest muidu ta ei saa aru et need on samasugused kuna meil nonohis on tühikud vahel
             if (nonoh.replace(' ', '')) == sõna.upper():
-                võitsid = Label(topframe, text="Ära arvasid!", font=("Helvetica", 20)).grid(row=9, column=6)
-
+                voitsid()
+                
 
         else:
             print("Buu, seda tahte pole sonas!")
@@ -78,16 +78,23 @@ def callback(täht):
 
 
     else:
-        #print("MÄNGLÄBI")
-        mang_labi = Label(topframe, text="Mäng Läbi!", font=("Helvetica", 20)).grid(row=9, column=6)
-        photo = PhotoImage(file="sticky_figure.png")
-        w = Label(topframe, image=photo)
-        w.photo = photo
-        w.grid(row=12, column=6)
-                    
+        kaotasid()
+        
+                
 
+def voitsid():
+    võitsid = Label(topframe, text="Ära arvasid!", font=("Helvetica", 20)).grid(row=9, column=6)
+    photo = PhotoImage(file="happy_sticky.png")
+    w = Label(topframe, image=photo)
+    w.photo = photo
+    w.grid(row=12, column=6)
 
-
+def kaotasid():
+    mang_labi = Label(topframe, text="Mäng Läbi!", font=("Helvetica", 20)).grid(row=9, column=6)
+    photo = PhotoImage(file="sticky_figure.png")
+    w = Label(topframe, image=photo)
+    w.photo = photo
+    w.grid(row=12, column=6)   
 
 
 root = Tk()
@@ -114,31 +121,60 @@ subMenu.add_separator()
 
 
 
-A_nupp = Button(bottomframe, text="A",command = lambda täht="a": callback(täht),height=2, width=2).grid(row=0, column=2, padx=2, pady=2)
-B_nupp = Button(bottomframe, text="B",command = lambda täht="b": callback(täht),height=2, width=2).grid(row=0, column=3, padx=2, pady=2)
-C_nupp = Button(bottomframe, text="C",command = lambda täht="c": callback(täht),height=2, width=2).grid(row=0, column=4, padx=2, pady=2)
-D_nupp = Button(bottomframe, text="D",command = lambda täht="d": callback(täht),height=2, width=2).grid(row=0, column=5, padx=2, pady=2)
-E_nupp = Button(bottomframe, text="E",command = lambda täht="e": callback(täht),height=2, width=2).grid(row=0, column=6, padx=2, pady=2)
-F_nupp = Button(bottomframe, text="F",command = lambda täht="f": callback(täht),height=2, width=2).grid(row=0, column=7, padx=2, pady=2)
-G_nupp = Button(bottomframe, text="G",command = lambda täht="g": callback(täht),height=2, width=2).grid(row=0, column=8, padx=2, pady=2)
-H_nupp = Button(bottomframe, text="H",command = lambda täht="h": callback(täht),height=2, width=2).grid(row=0, column=9, padx=2, pady=2)
-I_nupp = Button(bottomframe, text="I",command = lambda täht="i": callback(täht),height=2, width=2).grid(row=0, column=10, padx=2, pady=2)
-J_nupp = Button(bottomframe, text="J",command = lambda täht="j": callback(täht),height=2, width=2).grid(row=0, column=11, padx=2, pady=2)
-K_nupp = Button(bottomframe, text="K",command = lambda täht="k": callback(täht),height=2, width=2).grid(row=0, column=12, padx=2, pady=2)
-L_nupp = Button(bottomframe, text="L",command = lambda täht="l": callback(täht),height=2, width=2).grid(row=1, column=0, padx=2, pady=2)
-M_nupp = Button(bottomframe, text="M",command = lambda täht="m": callback(täht),height=2, width=2).grid(row=1, column=1, padx=2, pady=2)
-N_nupp = Button(bottomframe, text="N",command = lambda täht="n": callback(täht),height=2, width=2).grid(row=1, column=2, padx=2, pady=2)
-O_nupp = Button(bottomframe, text="O",command = lambda täht="o": callback(täht),height=2, width=2).grid(row=1, column=3, padx=2, pady=2)
-P_nupp = Button(bottomframe, text="P",command = lambda täht="p": callback(täht),height=2, width=2).grid(row=1, column=4, padx=2, pady=2)
-R_nupp = Button(bottomframe, text="R",command = lambda täht="r": callback(täht),height=2, width=2).grid(row=1, column=5, padx=2, pady=2)
-S_nupp = Button(bottomframe, text="S",command = lambda täht="s": callback(täht),height=2, width=2).grid(row=1, column=6, padx=2, pady=2)
-T_nupp = Button(bottomframe, text="T",command = lambda täht="t": callback(täht),height=2, width=2).grid(row=1, column=7, padx=2, pady=2)
-U_nupp = Button(bottomframe, text="U",command = lambda täht="u": callback(täht),height=2, width=2).grid(row=1, column=8, padx=2, pady=2)
-V_nupp = Button(bottomframe, text="V",command = lambda täht="v": callback(täht),height=2, width=2).grid(row=1, column=9, padx=2, pady=2)
-Õ_nupp = Button(bottomframe, text="Õ",command = lambda täht="õ": callback(täht),height=2, width=2).grid(row=1, column=10, padx=2, pady=2)
-Ä_nupp = Button(bottomframe, text="Ä",command = lambda täht="ä": callback(täht),height=2, width=2).grid(row=1, column=11, padx=2, pady=2)
-Ö_nupp = Button(bottomframe, text="Ö",command = lambda täht="ö": callback(täht),height=2, width=2).grid(row=1, column=12, padx=2, pady=2)
-Ü_nupp = Button(bottomframe, text="Ü",command = lambda täht="ü": callback(täht),height=2, width=2).grid(row=1, column=13, padx=2, pady=2)
+A_nupp = Button(bottomframe, text="A",command = lambda täht="a": callback(täht),height=2, width=2).grid(row=2, column=2, padx=2, pady=2)
+B_nupp = Button(bottomframe, text="B",command = lambda täht="b": callback(täht),height=2, width=2).grid(row=2, column=3, padx=2, pady=2)
+C_nupp = Button(bottomframe, text="C",command = lambda täht="c": callback(täht),height=2, width=2).grid(row=2, column=4, padx=2, pady=2)
+D_nupp = Button(bottomframe, text="D",command = lambda täht="d": callback(täht),height=2, width=2).grid(row=2, column=5, padx=2, pady=2)
+E_nupp = Button(bottomframe, text="E",command = lambda täht="e": callback(täht),height=2, width=2).grid(row=2, column=6, padx=2, pady=2)
+F_nupp = Button(bottomframe, text="F",command = lambda täht="f": callback(täht),height=2, width=2).grid(row=2, column=7, padx=2, pady=2)
+G_nupp = Button(bottomframe, text="G",command = lambda täht="g": callback(täht),height=2, width=2).grid(row=2, column=8, padx=2, pady=2)
+H_nupp = Button(bottomframe, text="H",command = lambda täht="h": callback(täht),height=2, width=2).grid(row=2, column=9, padx=2, pady=2)
+I_nupp = Button(bottomframe, text="I",command = lambda täht="i": callback(täht),height=2, width=2).grid(row=2, column=10, padx=2, pady=2)
+J_nupp = Button(bottomframe, text="J",command = lambda täht="j": callback(täht),height=2, width=2).grid(row=2, column=11, padx=2, pady=2)
+K_nupp = Button(bottomframe, text="K",command = lambda täht="k": callback(täht),height=2, width=2).grid(row=2, column=12, padx=2, pady=2)
+L_nupp = Button(bottomframe, text="L",command = lambda täht="l": callback(täht),height=2, width=2).grid(row=3, column=0, padx=2, pady=2)
+M_nupp = Button(bottomframe, text="M",command = lambda täht="m": callback(täht),height=2, width=2).grid(row=3, column=1, padx=2, pady=2)
+N_nupp = Button(bottomframe, text="N",command = lambda täht="n": callback(täht),height=2, width=2).grid(row=3, column=2, padx=2, pady=2)
+O_nupp = Button(bottomframe, text="O",command = lambda täht="o": callback(täht),height=2, width=2).grid(row=3, column=3, padx=2, pady=2)
+P_nupp = Button(bottomframe, text="P",command = lambda täht="p": callback(täht),height=2, width=2).grid(row=3, column=4, padx=2, pady=2)
+R_nupp = Button(bottomframe, text="R",command = lambda täht="r": callback(täht),height=2, width=2).grid(row=3, column=5, padx=2, pady=2)
+S_nupp = Button(bottomframe, text="S",command = lambda täht="s": callback(täht),height=2, width=2).grid(row=3, column=6, padx=2, pady=2)
+T_nupp = Button(bottomframe, text="T",command = lambda täht="t": callback(täht),height=2, width=2).grid(row=3, column=7, padx=2, pady=2)
+U_nupp = Button(bottomframe, text="U",command = lambda täht="u": callback(täht),height=2, width=2).grid(row=3, column=8, padx=2, pady=2)
+V_nupp = Button(bottomframe, text="V",command = lambda täht="v": callback(täht),height=2, width=2).grid(row=3, column=9, padx=2, pady=2)
+Õ_nupp = Button(bottomframe, text="Õ",command = lambda täht="õ": callback(täht),height=2, width=2).grid(row=3, column=10, padx=2, pady=2)
+Ä_nupp = Button(bottomframe, text="Ä",command = lambda täht="ä": callback(täht),height=2, width=2).grid(row=3, column=11, padx=2, pady=2)
+Ö_nupp = Button(bottomframe, text="Ö",command = lambda täht="ö": callback(täht),height=2, width=2).grid(row=3, column=12, padx=2, pady=2)
+Ü_nupp = Button(bottomframe, text="Ü",command = lambda täht="ü": callback(täht),height=2, width=2).grid(row=3, column=13, padx=2, pady=2)
+
+
+
+#Teen uue funktsiooni, et saaks terve sõna korraga ära arvata         
+def arvan_sona_korraga():
+    arvatud_sõna = arva_sona.get().upper()
+    if arvatud_sõna == sõna.upper():
+        varjatud_sõna.set(arvatud_sõna)
+        voitsid()
+    else:
+        kaotasid()
+
+
+def kuva_sisestuskast():
+    if var.get()==1:
+        sisestuskast = Entry(bottomframe, textvariable=arva_sona).grid(row=0, column=3, columnspan=5)
+        arva_nupp = Button(bottomframe, text="Arvan",command = arvan_sona_korraga).grid(row=0, column=6, columnspan=8)
+    #else:
+        #See hetkel ei toimi, ta läheb küll else harru kui linnukese ära võtad aga ta ei oska kustutada ega unustada asju hetkel
+        #sisestuskast.destroy()
+        #arva_nupp.grid_forget()
+
+
+ 
+var = IntVar()
+Checkbutton(bottomframe, text="Tean:", variable=var, command=kuva_sisestuskast).grid(row=0, column=0, columnspan=2)
+
+arva_sona= StringVar()
+
 
 
 root.mainloop()
