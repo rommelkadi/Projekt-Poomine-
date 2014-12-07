@@ -166,9 +166,7 @@ def kuva_sisestuskast():
         sisestuskast = Entry(bottomframe, textvariable=arva_sona).grid(row=0, column=3, columnspan=5)
         arva_nupp = Button(bottomframe, text="Arvan",command = arvan_sona_korraga).grid(row=0, column=6, columnspan=8)
     else:
-        #See hetkel ei toimi, ta läheb küll else harru kui linnukese ära võtad aga ta ei oska kustutada ega unustada asju hetkel
-        #sisestuskast.destroy()
-        #arva_nupp.destroy()
+        
         Label(bottomframe,text="", width=30, height=2).grid(row=0, column=3, columnspan=8)
 
 
