@@ -9,7 +9,8 @@ def destroy():
 
 
 def kuva_uus_sõna():
-     
+
+
     global varjatud_sõna
     f = open("sõnadelist.txt")
     read = f.readlines()
@@ -37,11 +38,12 @@ def kuva_uus_sõna():
 
 counter = 0
 
+
 def callback(täht):
 
 #Kustuta need hiljem ära! see ei toimi nii. Aga võiks toimida, hetkel idee oli see, et iga tähe jaoks eraldi funktsioon teha, või siis kasutada sõnastikku, panna täht selleks võtmesõnaks ja nupp vasteks {} sisse
- #   if täht =="a":
- #       A_nupp.config(state="disabled")
+   #if täht =="a":
+   #    A_nupp.config(state="disabled")
     
 
     global counter
@@ -79,7 +81,6 @@ def callback(täht):
 
     else:
         kaotasid()
-        
                 
 
 def voitsid():
@@ -95,6 +96,8 @@ def kaotasid():
     w = Label(topframe, image=photo)
     w.photo = photo
     w.grid(row=12, column=6)   
+
+
 
 
 root = Tk()
@@ -117,7 +120,6 @@ menu.add_cascade(label="File", menu=subMenu)
 subMenu.add_command(label="Uus mäng", command=kuva_uus_sõna)
 subMenu.add_command(label="Exit", command= destroy)
 subMenu.add_separator()
-
 
 
 
@@ -163,10 +165,11 @@ def kuva_sisestuskast():
     if var.get()==1:
         sisestuskast = Entry(bottomframe, textvariable=arva_sona).grid(row=0, column=3, columnspan=5)
         arva_nupp = Button(bottomframe, text="Arvan",command = arvan_sona_korraga).grid(row=0, column=6, columnspan=8)
-    #else:
+    else:
         #See hetkel ei toimi, ta läheb küll else harru kui linnukese ära võtad aga ta ei oska kustutada ega unustada asju hetkel
         #sisestuskast.destroy()
-        #arva_nupp.grid_forget()
+        #arva_nupp.destroy()
+        Label(bottomframe,text="", width=30, height=2).grid(row=0, column=3, columnspan=8)
 
 
  
