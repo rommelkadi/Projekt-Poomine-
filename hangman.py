@@ -9,6 +9,12 @@ def destroy():
 
 
 def kuva_uus_sõna():
+    global counter
+    counter=7
+    kuva_counter()
+
+    Label(topframe, text="", width=20, height=2).grid(row=9, column=6)
+    Label(topframe, text="", width=20, height=13 ).grid(row=12, column=6)
 
 
     global varjatud_sõna
