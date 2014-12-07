@@ -113,7 +113,7 @@ def kaotasid():
 
 
 root = Tk()
-root.geometry("500x400")
+root.geometry("500x450")
 
 topframe=Frame(root)
 topframe.pack()
