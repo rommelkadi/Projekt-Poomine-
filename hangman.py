@@ -7,7 +7,7 @@ from random import *
 def destroy():
     root.destroy()
 
-def kuva_uus_sõna():
+def kuva_uus_sona():
     kuva_skoor()
     global counter
     counter=7
@@ -94,6 +94,7 @@ bottomframe=Frame(root)
 bottomframe.pack(side=BOTTOM)
 
 
+
 counter = 7
 kuva_counter()
 skoor = 0
@@ -134,7 +135,7 @@ def callback(täht):
             print("Buu, seda tahte pole sonas!")
             counter -=1
             kuva_counter()
-            print(counter)
+            
             
 
 
@@ -229,7 +230,7 @@ root.config(menu=menu)
 
 subMenu = Menu(menu)
 menu.add_cascade(label="File", menu=subMenu)
-subMenu.add_command(label="Uus sõna", command=kuva_uus_sõna)
+subMenu.add_command(label="Uus sõna", command=kuva_uus_sona)
 subMenu.add_command(label="Exit", command= destroy)
 subMenu.add_separator()
 
