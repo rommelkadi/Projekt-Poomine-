@@ -8,6 +8,7 @@ def destroy():
     root.destroy()
 
 def kuva_uus_sõna():
+    kuva_skoor()
     global counter
     counter=7
     kuva_counter()
@@ -42,6 +43,9 @@ def kuva_uus_sõna():
 
 def kuva_counter():
     Label(bottomframe, text="Misses left: %.f" % counter, font=("Helvetica", 12) ).grid(row=0, column=0, columnspan=3)
+
+def kuva_skoor():
+    Label(bottomframe, text="Punkte: %.f" % skoor, font=("Helvetica", 12) ).grid(row=1, column=0, columnspan=3)
     
 
 def voitsid():
@@ -50,8 +54,12 @@ def voitsid():
     w = Label(topframe, image=photo)
     w.photo = photo
     w.grid(row=12, column=6)
+    global skoor
+    skoor += counter
+    kuva_skoor()
 
 def kaotasid():
+    kuva_skoor()
     global counter
     counter =0
     kuva_counter()
@@ -59,13 +67,17 @@ def kaotasid():
     photo = PhotoImage(file="sticky_figure.png")
     w = Label(topframe, image=photo)
     w.photo = photo
-    w.grid(row=12, column=6)   
+    w.grid(row=12, column=6)
+    varjatud_sõna.set(sõna.upper())
+    Label(topframe, textvariable = varjatud_sõna, font=("Helvetica", 20), width=15).grid(row=5, column=6)
+    global skoor
+    skoor = 0
 
 
 
 
 root = Tk()
-root.geometry("500x400")
+root.geometry("500x450")
 
 topframe=Frame(root)
 topframe.pack()
@@ -73,13 +85,12 @@ topframe.pack()
 bottomframe=Frame(root)
 bottomframe.pack(side=BOTTOM)
 
-#et et näitaks mitu võib valesti vastata kui kuva_counter ära jätta siis on jama, sest ta ei näita kohe mitu valesti võid vastata ja lõpuks jääb 1 kui juba surnd oled
+
 counter = 7
 kuva_counter()
+skoor = 0
 
 def callback(täht):
-
-
     
 
     global counter
@@ -106,8 +117,7 @@ def callback(täht):
             varjatud_sõna.set(nonoh)
             
             
-                      
-            #Kui sõna on õigesti vastatud kuvab ära arvasid! See replace värk on vajalik sest muidu ta ei saa aru et need on samasugused kuna meil nonohis on tühikud vahel
+
             if (nonoh.replace(' ', '')) == sõna.upper():
                 voitsid()
                 
@@ -211,12 +221,12 @@ root.config(menu=menu)
 
 subMenu = Menu(menu)
 menu.add_cascade(label="File", menu=subMenu)
-subMenu.add_command(label="Uus mäng", command=kuva_uus_sõna)
+subMenu.add_command(label="Uus sõna", command=kuva_uus_sõna)
 subMenu.add_command(label="Exit", command= destroy)
 subMenu.add_separator()
 
 
-#Teen uue funktsiooni, et saaks terve sõna korraga ära arvata         
+       
 def arvan_sona_korraga():
     arvatud_sõna = arva_sona.get().upper()
     if arvatud_sõna == sõna.upper():
@@ -241,6 +251,9 @@ var = IntVar()
 Checkbutton(bottomframe, text="Tean:", variable=var, command=kuva_sisestuskast).grid(row=2, column=0, columnspan=2)
 
 arva_sona= StringVar()
+
+
+
 
 
 
