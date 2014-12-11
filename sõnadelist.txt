@@ -30,7 +30,7 @@ vahvel
 karu
 jänes
 kannel
-Kurk
+kurk
 pudel
 banaan
 batuut
