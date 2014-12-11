@@ -7,14 +7,14 @@ from random import *
 def destroy():
     root.destroy()
 
-def kuva_uus_sona():
+def kuva_uus_sõna():
     kuva_skoor()
     global counter
     counter=7
     kuva_counter()
 
-    Label(topframe, text="", width=20, height=2).grid(row=9, column=6)
-    Label(topframe, text="", width=20, height=13 ).grid(row=12, column=6)
+    Label(topframe, text="",bg="white", width=20, height=2).grid(row=9, column=6)
+    Label(topframe, text="",bg="white", width=20, height=13 ).grid(row=12, column=6)
 
 
     global varjatud_sõna
@@ -32,7 +32,7 @@ def kuva_uus_sona():
     varjatud_sõna = StringVar()
     varjatud_sõna.set((len(sõna)*"_ "))
     
-    kuva_aknas = Label(topframe, textvariable = varjatud_sõna, font=("Helvetica", 20), width=15).grid(row=5, column=6)
+    kuva_aknas = Label(topframe,bg="white", textvariable = varjatud_sõna, font=("Helvetica", 20), width=15).grid(row=5, column=6)
     kuva_nupud()
         
     print(sõna)
@@ -42,23 +42,23 @@ def kuva_uus_sona():
 
 
 def kuva_counter():
-    Label(bottomframe, text="Misses left: %.f" % counter, font=("Helvetica", 12) ).grid(row=0, column=0, columnspan=3)
+    Label(bottomframe, text="Misses left: %.f" % counter, bg="white", font=("Helvetica", 12) ).grid(row=0, column=0, columnspan=3)
 
 def kuva_skoor():
-    Label(bottomframe, text="Punkte: %.f" % skoor, font=("Helvetica", 12) ).grid(row=1, column=0, columnspan=3)
+    Label(bottomframe, text="Punkte: %.f" % skoor, bg="white", font=("Helvetica", 12) ).grid(row=1, column=0, columnspan=3)
     
 def kuva_parim_skoor():
     global skoor
     global parim_skoor
-    Label(bottomframe, text="Parim skoor: %.f" % parim_skoor, font=("Helvetica, 10")).grid(row=0, column=13, columnspan=15)
+    Label(bottomframe, text="Parim skoor: %.f" % parim_skoor,bg="white", font=("Helvetica, 10")).grid(row=0, column=13, columnspan=15)
     if skoor > parim_skoor:
         parim_skoor = skoor
-        Label(bottomframe, text="Parim skoor: %.f" % parim_skoor, font=("Helvetica, 10")).grid(row=0, column=13, columnspan=15)
+        Label(bottomframe, text="Parim skoor: %.f" % parim_skoor,bg="white", font=("Helvetica, 10")).grid(row=0, column=13, columnspan=15)
 
 def voitsid():
-    võitsid = Label(topframe, text="Ära arvasid!", font=("Helvetica", 20)).grid(row=9, column=6)
+    võitsid = Label(topframe, text="Ära arvasid!",bg="white", font=("Helvetica", 20)).grid(row=9, column=6)
     photo = PhotoImage(file="happy_sticky.png")
-    w = Label(topframe, image=photo)
+    w = Label(topframe, image=photo,bg="white")
     w.photo = photo
     w.grid(row=12, column=6)
     global skoor
@@ -70,13 +70,13 @@ def kaotasid():
     global counter
     counter =0
     kuva_counter()
-    mang_labi = Label(topframe, text="Mäng Läbi!", font=("Helvetica", 20)).grid(row=9, column=6)
+    mang_labi = Label(topframe, text="Mäng Läbi!",bg="white", font=("Helvetica", 20)).grid(row=9, column=6)
     photo = PhotoImage(file="sticky_figure.png")
-    w = Label(topframe, image=photo)
+    w = Label(topframe, image=photo,bg="white")
     w.photo = photo
     w.grid(row=12, column=6)
     varjatud_sõna.set(sõna.upper())
-    Label(topframe, textvariable = varjatud_sõna, font=("Helvetica", 20), width=15).grid(row=5, column=6)
+    Label(topframe, textvariable = varjatud_sõna,bg="white", font=("Helvetica", 20), width=15).grid(row=5, column=6)
     kuva_parim_skoor()
     global skoor
     skoor = 0
@@ -86,13 +86,15 @@ def kaotasid():
 
 root = Tk()
 root.geometry("500x450")
+root.configure(background='white')
 
 topframe=Frame(root)
 topframe.pack()
+topframe.configure(bg="white")
 
 bottomframe=Frame(root)
 bottomframe.pack(side=BOTTOM)
-
+bottomframe.configure(bg="white")
 
 
 counter = 7
@@ -103,7 +105,7 @@ def callback(täht):
     
 
     global counter
-    if counter > 1:
+    if counter >= 1:
 
         dis_nupud(täht)
               
@@ -135,7 +137,7 @@ def callback(täht):
             print("Buu, seda tahte pole sonas!")
             counter -=1
             kuva_counter()
-            
+            print(counter)
             
 
 
@@ -172,6 +174,7 @@ def kuva_nupud():
     Ü_nupp = Button(bottomframe, text="Ü",command = lambda täht="ü": callback(täht),height=2, width=2).grid(row=5, column=13, padx=2, pady=2)
 
 kuva_nupud()
+kuva_uus_sõna()
 
 def dis_nupud(täht):
             if täht == "a":
@@ -230,7 +233,7 @@ root.config(menu=menu)
 
 subMenu = Menu(menu)
 menu.add_cascade(label="File", menu=subMenu)
-subMenu.add_command(label="Uus sõna", command=kuva_uus_sona)
+subMenu.add_command(label="Uus sõna", command=kuva_uus_sõna)
 subMenu.add_command(label="Exit", command= destroy)
 subMenu.add_separator()
 
@@ -248,16 +251,16 @@ def arvan_sona_korraga():
 
 def kuva_sisestuskast():
     if var.get()==1:
-        sisestuskast = Entry(bottomframe, textvariable=arva_sona).grid(row=2, column=3, columnspan=5)
-        arva_nupp = Button(bottomframe, text="Arvan",command = arvan_sona_korraga).grid(row=2, column=6, columnspan=8)
+        sisestuskast = Entry(bottomframe,bg="white", textvariable=arva_sona).grid(row=2, column=3, columnspan=5)
+        arva_nupp = Button(bottomframe, text="Arvan",bg="white",command = arvan_sona_korraga).grid(row=2, column=6, columnspan=8)
     else:
 
-        Label(bottomframe,text="", width=30, height=2).grid(row=2, column=3, columnspan=8)
+        Label(bottomframe,text="", width=30, height=2,bg="white",).grid(row=2, column=3, columnspan=8)
 
 
  
 var = IntVar()
-Checkbutton(bottomframe, text="Tean:", variable=var, command=kuva_sisestuskast).grid(row=2, column=0, columnspan=2)
+Checkbutton(bottomframe, text="Tean:",bg="white", variable=var, command=kuva_sisestuskast).grid(row=2, column=0, columnspan=2)
 
 arva_sona= StringVar()
 
