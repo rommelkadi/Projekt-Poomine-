@@ -47,6 +47,13 @@ def kuva_counter():
 def kuva_skoor():
     Label(bottomframe, text="Punkte: %.f" % skoor, font=("Helvetica", 12) ).grid(row=1, column=0, columnspan=3)
     
+def kuva_parim_skoor():
+    global skoor
+    global parim_skoor
+    Label(bottomframe, text="Parim skoor: %.f" % parim_skoor, font=("Helvetica, 10")).grid(row=0, column=13, columnspan=15)
+    if skoor > parim_skoor:
+        parim_skoor = skoor
+        Label(bottomframe, text="Parim skoor: %.f" % parim_skoor, font=("Helvetica, 10")).grid(row=0, column=13, columnspan=15)
 
 def voitsid():
     võitsid = Label(topframe, text="Ära arvasid!", font=("Helvetica", 20)).grid(row=9, column=6)
@@ -70,6 +77,7 @@ def kaotasid():
     w.grid(row=12, column=6)
     varjatud_sõna.set(sõna.upper())
     Label(topframe, textvariable = varjatud_sõna, font=("Helvetica", 20), width=15).grid(row=5, column=6)
+    kuva_parim_skoor()
     global skoor
     skoor = 0
 
@@ -251,6 +259,9 @@ var = IntVar()
 Checkbutton(bottomframe, text="Tean:", variable=var, command=kuva_sisestuskast).grid(row=2, column=0, columnspan=2)
 
 arva_sona= StringVar()
+
+parim_skoor = 0
+kuva_parim_skoor()
 
 
 
